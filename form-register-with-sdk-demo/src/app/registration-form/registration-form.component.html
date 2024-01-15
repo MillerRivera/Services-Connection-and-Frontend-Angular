@@ -1,0 +1,33 @@
+
+<form class="container mt-5" (ngSubmit)="onSubmit()">
+    <legend>Registro de Clientes</legend>
+    <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input class="form-control" type="text" id="name" name="name" [(ngModel)]="formData.clientData.name" required>
+        <div class="invalid-feedback" *ngIf="!formData.clientData.name">Name is required</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input class="form-control" type="email" id="email" name="email" [(ngModel)]="formData.clientData.email" required>
+        <div class="invalid-feedback" *ngIf="!formData.clientData">Please enter a valid email address</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="phone" class="form-label">Phone:</label>
+        <input class="form-control" type="text" id="phone" name="phone" [(ngModel)]="formData.clientData.phone" required>
+        <div class="invalid-feedback" *ngIf="!formData.clientData.phone">Name is required</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="token" class="form-label">Token:</label>
+        <input type="text" class="form-control" id="token" name="token" [(ngModel)]="formData.token" required>
+    </div>
+  
+    <button class="btn btn-info " type="submit">Register</button>
+
+</form>
+<div *ngIf="error">
+    <p>ERROR:</p>
+    <pre>{{ error | json }}</pre>
+</div>  
